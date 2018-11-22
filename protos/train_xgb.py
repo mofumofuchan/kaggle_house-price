@@ -82,11 +82,11 @@ if __name__ == "__main__":
             clf.fit(trn_x,
                     trn_y,
                     eval_set=[(val_x, val_y)],
-                    early_stopping_rounds=10,
+                    early_stopping_rounds=100,
                     eval_metric=["rmse"],
                     verbose=False)
 
-            pred = clf.predict(val_x)
+            pred = clf.predict(val_x, ntree_limit=(clf.best_ntree_limit-1))
             rmse_val = rmse_func(val_y, pred)
 
             list_rmse.append(rmse_val)
