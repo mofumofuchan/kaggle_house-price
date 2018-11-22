@@ -92,8 +92,6 @@ if __name__ == "__main__":
             list_rmse.append(rmse_val)
             logger.debug("    rmse: {}".format(rmse_val))
 
-            break  # FIXME trial
-
         mean_rmse = np.mean(list_rmse)
 
         logger.info("rmse: {}".format(mean_rmse))
@@ -102,7 +100,6 @@ if __name__ == "__main__":
             min_params = params
         logger.info("current minerror: {}, params: {}".format(min_error,
                                                               min_params))
-        break  # FIXME debug
 
     logger.info("Save best params")
     with open(os.path.join(DIR, PARAMS_FILENAME), mode="wb") as f:
